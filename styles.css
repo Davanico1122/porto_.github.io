@@ -34,14 +34,20 @@ body.dark-mode .text-gray-700 {
     color: #E0F2F2; /* Mengubah warna teks abu-abu di section "About" */
 }
 
-body.dark-mode .dark-bg {
-    background-color: #0D1A1A; /* Memastikan elemen dengan dark-bg berubah */
+/* Pastikan kelas-kelas Tailwind custom colors juga ikut berubah */
+body.dark-mode .bg-dark-bg { /* Ini untuk body default yang sudah ada dark-bg */
+    background-color: #0D1A1A;
 }
 
-body.dark-mode .dark-accent {
-    background-color: #223838; /* Memastikan elemen dengan dark-accent berubah */
+body.dark-mode .bg-dark-accent {
+    background-color: #223838;
 }
 
+body.dark-mode .text-dark-bg { /* Untuk teks di dalam kartu biru muda */
+    color: #E0F2F2;
+}
+
+/* Header, Navigasi, dan Link */
 body.dark-mode .main-header {
     background-color: rgba(13, 26, 26, 0.95); /* Sedikit lebih gelap & transparan */
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
