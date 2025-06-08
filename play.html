@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eksperimen – Nama Kamu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-dark-bg text-text-primary antialiased transition-colors duration-500">
 
+  <!-- Header -->
+  <header class="main-header container mx-auto px-6 py-8 flex justify-center md:justify-between items-center relative z-20 transition-all duration-300">
+    <div class="hidden md:block text-3xl font-heading font-extrabold text-text-primary">
+      <a href="index.html" class="hover:opacity-80 transition duration-300">Nama Kamu</a>
+    </div>
+
+    <nav class="main-nav bg-dark-accent rounded-full p-2 flex space-x-2">
+      <a href="index.html" class="nav-link px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">Work</a>
+      <a href="about.html" class="nav-link px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">About</a>
+      <a href="play.html" class="nav-link active px-6 py-2 rounded-full bg-text-secondary text-button-text-active font-semibold text-lg transition duration-300">Play</a>
+      <a href="notes.html" class="nav-link px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">Notes</a>
+      <a href="index.html#contact" class="nav-link px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-section container mx-auto px-6 py-20 text-center min-h-screen flex flex-col justify-center items-center">
+    <h1 class="text-6xl md:text-8xl font-heading font-extrabold leading-tight mb-6 text-text-secondary animate-fade-in-up">
+      Playground.
+    </h1>
+    <p class="text-xl md:text-2xl max-w-3xl text-text-primary opacity-90 animate-fade-in-up delay-200">
+      Eksperimen kreatif, proyek kecil, dan hal-hal menyenangkan yang saya buat saat iseng.
+    </p>
+  </section>
+
+  <!-- Project List -->
+  <section class="container mx-auto px-6 py-20 max-w-6xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project 1 -->
+      <div class="bg-card-teal rounded-5xl p-6 text-white shadow-xl transform hover:scale-105 transition duration-300">
+        <h3 class="text-2xl font-heading font-bold mb-2">Generative Pattern</h3>
+        <p class="mb-4">Canvas experiment with JavaScript + randomness.</p>
+        <a href="#" class="underline hover:text-text-secondary">Lihat Proyek →</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-card-purple rounded-5xl p-6 text-white shadow-xl transform hover:scale-105 transition duration-300">
+        <h3 class="text-2xl font-heading font-bold mb-2">Animated Blob</h3>
+        <p class="mb-4">SVG morphing blob with CSS animation.</p>
+        <a href="#" class="underline hover:text-text-secondary">Lihat Proyek →</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-card-orange rounded-5xl p-6 text-white shadow-xl transform hover:scale-105 transition duration-300">
+        <h3 class="text-2xl font-heading font-bold mb-2">Mini Game</h3>
+        <p class="mb-4">Game sederhana pakai JavaScript (Drag & Drop).</p>
+        <a href="#" class="underline hover:text-text-secondary">Lihat Proyek →</a>
+      </div>
+
+      <!-- Kamu bisa tambah lebih banyak di sini -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-bg text-text-primary py-12 text-center text-sm border-t border-dark-accent mt-20 transition-colors duration-500">
+    <div class="container mx-auto px-6">
+      <p class="mb-4">&copy; 2025 Nama Kamu. All rights reserved.</p>
+    </div>
+    <button id="darkModeToggle" class="fixed bottom-8 right-8 bg-button-bg text-white p-3 rounded-full shadow-lg cursor-pointer hover:scale-110 transition duration-300 z-50">
+      🌙
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
