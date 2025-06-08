@@ -1,131 +1,131 @@
 /* style.css */
 
-/* --- Import Google Fonts (Alternatif dari HTML Link) --- */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap'); */
-
-/* --- Base Styles (Global) --- */
+/* Global Smooth Scrolling */
 html {
     scroll-behavior: smooth;
 }
 
+/* Base Body Transition for Dark Mode */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #1b3231; /* dark-bg */
-    color: #d1ede3; /* text-primary */
-    -webkit-font-smoothing: antialiased; /* Anti-aliasing for smoother fonts */
-    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #a8e1cb; /* text-secondary or a similar accent */
+/* --- Dark Mode Styles --- */
+body.dark-mode {
+    background-color: #0D1A1A; /* dark-mode-bg */
+    color: #E0F2F2; /* dark-mode-text */
 }
 
-/* --- Layout (jika tidak menggunakan Tailwind grid/flexbox secara penuh) --- */
-.container {
-    max-width: 1280px; /* Contoh max-width untuk container */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem; /* px-6 */
-    padding-right: 1.5rem; /* px-6 */
+body.dark-mode .main-header {
+    background-color: rgba(13, 26, 26, 0.9); /* Sedikit transparan */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-/* --- Header / Navbar Styles --- */
-.main-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2rem; /* py-8 */
-    padding-bottom: 2rem;
-    position: relative;
-    z-index: 10;
+body.dark-mode .main-nav {
+    background-color: #223838; /* dark-mode-accent */
 }
 
-.main-nav {
-    background-color: #2e494a; /* dark-accent */
-    border-radius: 9999px; /* full rounded */
-    padding: 0.5rem; /* p-2 */
-    display: flex;
-    gap: 0.5rem; /* space-x-2 */
+body.dark-mode .nav-link {
+    color: #E0F2F2; /* dark-mode-text */
 }
 
-.nav-link {
-    padding: 0.5rem 1.5rem; /* px-6 py-2 */
-    border-radius: 9999px;
-    color: #d1ede3; /* button-text-inactive */
-    font-size: 1.125rem; /* text-lg */
-    transition: background-color 300ms ease;
+body.dark-mode .nav-link.active {
+    background-color: #4A6A6A; /* dark-mode-button-active */
+    color: #E0F2F2; /* dark-mode-button-active-text */
 }
 
-.nav-link:hover {
-    background-color: rgba(27, 50, 49, 0.5); /* hover:bg-dark-bg hover:bg-opacity-50 */
+body.dark-mode .nav-link:hover {
+    background-color: rgba(13, 26, 26, 0.5); /* hover:bg-dark-mode-bg hover:bg-opacity-50 */
 }
 
-.nav-link.active { /* Kelas untuk link aktif */
-    background-color: #a8e1cb; /* text-secondary */
-    color: #1b3231; /* button-text-active */
-    font-weight: 600; /* font-semibold */
+body.dark-mode .about-section {
+    background-color: #223838; /* dark-mode-accent */
 }
 
-/* --- Hero Section Styles --- */
-.hero-section {
-    text-align: center;
-    padding-top: 5rem; /* py-20 */
-    padding-bottom: 5rem;
-    position: relative;
-    overflow: hidden;
+body.dark-mode .about-section h2 {
+    color: #E0F2F2; /* dark-mode-text */
 }
 
-.hero-title {
-    font-size: 6rem; /* text-6xl, md:text-8xl */
-    font-weight: 800; /* font-extrabold */
-    line-height: 1; /* leading-none */
-    margin-bottom: 1.5rem; /* mb-6 */
-    margin-top: 4rem; /* mt-16 */
-    color: #a8e1cb; /* text-secondary */
+body.dark-mode .about-section p {
+    color: #E0F2F2; /* dark-mode-text */
 }
 
-/* --- Project Card Styles --- */
-.project-card {
-    position: relative;
-    border-radius: 3rem; /* rounded-5xl */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-2xl */
-    overflow: hidden;
-    height: 24rem; /* h-96 */
-    padding: 2rem; /* p-8 */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: transform 300ms ease;
-}
 
-.project-card:hover {
-    transform: scale(1.05);
-}
+/* --- Custom Animations --- */
 
-.project-card.purple {
-    background-color: #bf80ff; /* card-purple */
-    color: white;
-}
-
-.project-card.teal {
-    background-color: #66ccff; /* card-teal */
-    color: white;
-}
-
-.project-card.orange {
-    background-color: #ffb266; /* card-orange */
-    color: white;
-}
-
-/* ... dan seterusnya untuk setiap bagian ... */
-
-/* Media Queries untuk Responsivitas (jika tidak pakai utility Tailwind) */
-/* @media (min-width: 768px) {
-    .main-header {
-        justify-content: space-between;
+/* Fade In Up (untuk judul hero dan teks) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    .hero-title {
-        font-size: 8rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-} */
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0; /* Awalnya sembunyikan */
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+/* Tambahkan delay sesuai kebutuhan */
+
+
+/* Initial state for project cards (before they are observed) */
+.project-card, .project-card-hero {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95); /* Sedikit lebih ke bawah dan kecil */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Class added by JS when element is visible */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Star Pulse Animation */
+@keyframes star-pulse {
+    0% { transform: scale(1) rotate(45deg); opacity: 0.2; }
+    50% { transform: scale(1.1) rotate(45deg); opacity: 0.35; }
+    100% { transform: scale(1) rotate(45deg); opacity: 0.2; }
+}
+
+.star {
+    animation: star-pulse 4s infinite alternate ease-in-out;
+}
+/* Untuk membuat setiap bintang sedikit berbeda */
+.star:nth-child(1) { animation-delay: 0s; }
+.star:nth-child(2) { animation-delay: 0.5s; }
+.star:nth-child(3) { animation-delay: 1s; animation-duration: 3s; }
+.star:nth-child(4) { animation-delay: 1.5s; animation-duration: 5s; }
+
+
+/* Header Scrolled State */
+.main-header.scrolled {
+    background-color: rgba(27, 50, 49, 0.95); /* background yang lebih solid saat discroll */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+}
+
+/* Optional: Custom scrollbar (hanya di browser tertentu) */
+/*
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2e494a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a8e1cb;
+    border-radius: 10px;
+}
+*/
