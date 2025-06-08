@@ -1,51 +1,173 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Nama Anda - Desainer Produk</title>
+    <title>Sean Halpin - Desainer & Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Warna yang dianalisis dari seanhalpin.xyz
+                        'dark-bg': '#1b3231', // Warna background utama yang gelap
+                        'dark-accent': '#2e494a', // Warna untuk navigasi/elemen gelap lainnya
+                        'text-primary': '#d1ede3', // Warna teks utama terang
+                        'text-secondary': '#a8e1cb', // Warna teks sekunder/aksen
+                        'card-purple': '#bf80ff', // Warna card ungu
+                        'card-teal': '#66ccff', // Warna card teal/biru
+                        'card-orange': '#ffb266', // Warna card oranye
+                        'card-light-blue': '#a8e1cb', // Warna card biru muda
+                        'button-bg': '#416667', // Warna background tombol navigasi
+                        'button-text-active': '#1b3231', // Warna teks tombol aktif
+                        'button-text-inactive': '#d1ede3', // Warna teks tombol inactive
+                    },
+                    fontFamily: {
+                        // Font utama (Inter untuk body), font heading (Plus Jakarta Sans)
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'], // Font untuk judul besar
+                    },
+                    borderRadius: {
+                        '4xl': '2rem', // Sudut membulat yang lebih besar
+                        '5xl': '3rem', // Sudut membulat yang sangat besar
+                        '6xl': '4rem',
+                    },
+                    spacing: {
+                        '128': '32rem', // Ukuran spacing ekstra
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <h1>Nama Anda</h1>
-        <h2>Desainer Produk</h2>
-        <nav>
-            <ul>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
+<body class="font-sans bg-dark-bg text-text-primary antialiased">
+
+    <header class="container mx-auto px-6 py-8 flex justify-center md:justify-between items-center relative z-10">
+        <div class="hidden md:block text-3xl font-heading font-extrabold text-text-primary">
+            <a href="#" class="hover:opacity-80 transition duration-300">Sean Halpin</a>
+        </div>
+
+        <nav class="bg-dark-accent rounded-full p-2 flex space-x-2">
+            <a href="#" class="px-6 py-2 rounded-full bg-text-secondary text-button-text-active font-semibold text-lg transition duration-300">
+                Work <span class="text-sm font-normal ml-1">7</span>
+            </a>
+            <a href="#" class="px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">
+                About
+            </a>
+            <a href="#" class="px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">
+                Play
+            </a>
+            <a href="#" class="px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">
+                Notes
+            </a>
+            <a href="#" class="px-6 py-2 rounded-full text-button-text-inactive hover:bg-dark-bg hover:bg-opacity-50 transition duration-300">
+                Contact
+            </a>
         </nav>
     </header>
-    
-    <section id="about">
-        <h3>Tentang Saya</h3>
-        <p>Deskripsi singkat tentang diri Anda dan pengalaman. Anda dapat menambahkan informasi lebih lanjut di sini.</p>
-    </section>
-    
-    <section id="projects">
-        <h3>Proyek</h3>
-        <div class="project">
-            <h4>Proyek 1</h4>
-            <p>Deskripsi proyek 1.</p>
+
+    <section class="relative container mx-auto px-6 py-20 text-center overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-12 h-12 bg-white rounded-full rotate-45 transform -translate-x-1/2 -translate-y-1/2 opacity-20 filter blur-sm"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-white rounded-full rotate-45 transform translate-x-1/2 translate-y-1/2 opacity-20 filter blur-sm"></div>
+
+
+        <h1 class="text-6xl md:text-8xl font-heading font-extrabold leading-none mb-6 mt-16 text-text-secondary">
+            Hi. I'm Sean. <br> A Designer.
+        </h1>
+        <p class="text-lg md:text-2xl max-w-3xl mx-auto mb-10 text-text-primary opacity-90">
+            I'm passionate about crafting experiences that are engaging, accessible, and user-centric.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-end space-y-8 md:space-y-0 md:space-x-8 mt-20">
+            <div class="relative w-full md:w-5/12 lg:w-1/3 h-96 bg-card-purple rounded-5xl overflow-hidden shadow-2xl transform translate-y-20 rotate-3">
+                <div class="p-8 text-left">
+                    <p class="text-xs uppercase font-semibold opacity-70 mb-2">Help Scout</p>
+                    <h3 class="text-4xl font-heading font-extrabold text-white">AI</h3>
+                </div>
+                <img src="https://via.placeholder.com/400x300/a079e0/ffffff?text=AI+Preview" alt="Help Scout AI" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-auto rounded-xl shadow-lg border-2 border-white border-opacity-20">
+            </div>
+
+            <div class="relative w-full md:w-5/12 lg:w-1/3 h-96 bg-card-teal rounded-5xl overflow-hidden shadow-2xl transform -translate-y-10 -rotate-3">
+                <div class="p-8 text-left">
+                    <p class="text-xs uppercase font-semibold opacity-70 mb-2">Help Scout</p>
+                    <h3 class="text-4xl font-heading font-extrabold text-white">Articles</h3>
+                </div>
+                <img src="https://via.placeholder.com/400x300/50b1d0/ffffff?text=Articles+Preview" alt="Help Scout Articles" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-auto rounded-xl shadow-lg border-2 border-white border-opacity-20">
+            </div>
         </div>
-        <div class="project">
-            <h4>Proyek 2</h4>
-            <p>Deskripsi proyek 2.</p>
+    </section>
+
+    <section id="projects" class="container mx-auto px-6 py-20 mt-40">
+        <h2 class="text-5xl font-heading font-extrabold text-center mb-16 text-text-secondary">Proyek Lainnya</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="relative bg-card-orange rounded-5xl shadow-2xl overflow-hidden h-96 p-8 flex flex-col justify-end transform hover:scale-105 transition duration-300">
+                <div class="absolute inset-0">
+                    <img src="https://via.placeholder.com/600x400/ff9933/ffffff?text=Project+Placeholder" alt="Project 1" class="w-full h-full object-cover opacity-50">
+                </div>
+                <div class="relative z-10 text-white">
+                    <p class="text-xs uppercase font-semibold opacity-80 mb-1">Kategori Proyek</p>
+                    <h3 class="text-3xl font-heading font-extrabold mb-2">Judul Proyek Keren</h3>
+                    <p class="text-sm opacity-90">Deskripsi singkat proyek ini yang menarik perhatian.</p>
+                </div>
+            </div>
+
+            <div class="relative bg-card-light-blue rounded-5xl shadow-2xl overflow-hidden h-96 p-8 flex flex-col justify-end transform hover:scale-105 transition duration-300">
+                <div class="absolute inset-0">
+                    <img src="https://via.placeholder.com/600x400/8fe0c0/ffffff?text=Project+Placeholder" alt="Project 2" class="w-full h-full object-cover opacity-50">
+                </div>
+                <div class="relative z-10 text-dark-bg">
+                    <p class="text-xs uppercase font-semibold opacity-80 mb-1">Kategori Proyek</p>
+                    <h3 class="text-3xl font-heading font-extrabold mb-2">Proyek Desain UI/UX</h3>
+                    <p class="text-sm opacity-90">Solusi inovatif untuk pengalaman pengguna yang lebih baik.</p>
+                </div>
+            </div>
+
+            <div class="relative bg-card-purple rounded-5xl shadow-2xl overflow-hidden h-96 p-8 flex flex-col justify-end transform hover:scale-105 transition duration-300">
+                <div class="absolute inset-0">
+                    <img src="https://via.placeholder.com/600x400/9966cc/ffffff?text=Project+Placeholder" alt="Project 3" class="w-full h-full object-cover opacity-50">
+                </div>
+                <div class="relative z-10 text-white">
+                    <p class="text-xs uppercase font-semibold opacity-80 mb-1">Kategori Proyek</p>
+                    <h3 class="text-3xl font-heading font-extrabold mb-2">Aplikasi Web Interaktif</h3>
+                    <p class="text-sm opacity-90">Membangun fungsionalitas yang kuat dan responsif.</p>
+                </div>
+            </div>
+            </div>
+    </section>
+
+
+    <footer class="bg-dark-bg text-text-primary py-12 text-center text-sm border-t border-dark-accent mt-20">
+        <div class="container mx-auto px-6">
+            <p class="mb-4">&copy; 2025 Sean Halpin. Hak Cipta Dilindungi Undang-Undang.</p>
+            <div class="flex flex-col md:flex-row justify-center md:space-x-8 space-y-4 md:space-y-0">
+                <div>
+                    <h4 class="font-semibold text-text-secondary mb-2">Elsewhere</h4>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="hover:text-text-secondary">Figma</a></li>
+                        <li><a href="#" class="hover:text-text-secondary">Github</a></li>
+                        <li><a href="#" class="hover:text-text-secondary">Posts</a></li>
+                        <li><a href="#" class="hover:text-text-secondary">CV</a></li>
+                        <li><a href="#" class="hover:text-text-secondary">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-text-secondary mb-2">Contact</h4>
+                    <ul class="space-y-1">
+                        <li><a href="mailto:email@example.com" class="hover:text-text-secondary">Message</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <!-- Tambahkan lebih banyak proyek sesuai kebutuhan -->
-    </section>
-    
-    <section id="contact">
-        <h3>Kontak</h3>
-        <p>Ikuti saya di <a href="#">Media Sosial</a></p>
-    </section>
-    
-    <footer>
-        <p>&copy; 2023 Nama Anda. Semua hak dilindungi.</p>
+        <div class="fixed bottom-8 right-8 bg-button-bg text-white p-3 rounded-full shadow-lg cursor-pointer hover:scale-110 transition duration-300">
+            🌙
+        </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
