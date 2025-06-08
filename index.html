@@ -1,85 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Davanico Ady Nugroho | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davanico | Portofolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">Davanico Ady Nugroho</div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skill</a>
+      <a href="#projects">Project</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- Header -->
+  <header class="navbar">
+    <h1 class="logo">Davanico Ady Nugroho</h1>
+    <div class="menu-controls">
+      <button id="toggle-theme">🌓</button>
+      <button id="menu-toggle">☰</button>
+    </div>
   </header>
 
-  <nav class="sidebar" id="sidebar">
-    <a href="#about">About</a>
-    <a href="#skills">Skill</a>
-    <a href="#projects">Project</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="hero parallax">
-    <h1>Halo, saya <span class="highlight">Davanico</span> 👋</h1>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Halo, saya <span class="highlight">Davanico</span> 👋</h2>
     <p>Lagi belajar jadi web developer dan UI/UX designer, pengen bikin solusi digital yang kekinian dan ringan.</p>
-    <img src="profile.jpg" alt="Foto Profil" class="profile-img">
+    <img src="assets/img1.jpg" alt="Foto profil" class="profile-img" />
   </section>
 
-  <section id="about" class="content-section">
+  <!-- About Section -->
+  <section id="about" class="section">
     <h2>About Me</h2>
-    <p>Saya punya ketertarikan besar pada dunia pengembangan web. Saya suka sekali merancang dan membangun website yang terlihat modern, terasa interaktif saat digunakan, dan tentu saja memiliki estetika yang menarik.</p>
+    <p>Saya punya ketertarikan besar pada dunia pengembangan web. Saya suka merancang dan membangun website yang modern, interaktif, dan menarik.</p>
   </section>
 
-  <section id="skills" class="content-section">
+  <!-- Skills Section -->
+  <section id="skills" class="section">
     <h2>Skill</h2>
     <div class="skills">
-      <span>HTML5</span>
-      <span>CSS3</span>
-      <span>JavaScript</span>
-      <span>Figma / UI Design</span>
-      <span>GitHub</span>
-      <span>Corel Draw</span>
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>UI/UX Design</span><span>GitHub</span><span>Figma</span><span>Corel Draw</span>
     </div>
   </section>
 
-  <section id="projects" class="content-section">
+  <!-- Projects Section -->
+  <section id="projects" class="section">
     <h2>Project</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <img src="poster.jpg" alt="Project Poster">
+    <div class="project-cards">
+      <div class="card glass">
+        <img src="assets/img2.jpg" alt="Project 1" />
         <h3>DESIGN POSTER</h3>
-        <p>Setiap poster dibuat untuk menyampaikan pesan secara efektif dan menarik.</p>
-        <a href="project-poster.html" class="btn">Lihat Detail</a>
+        <p>Setiap poster dibuat unik dan menarik. Efektif menyampaikan pesan visual.</p>
+        <a href="project1.html" class="btn">Lihat Detail</a>
       </div>
-      <div class="project-card">
-        <img src="portfolio.jpg" alt="Portfolio Pribadi">
+      <div class="card glass">
+        <img src="assets/img3.jpg" alt="Project 2" />
         <h3>Portofolio Pribadi</h3>
-        <p>Template portofolio pribadi modern dan interaktif untuk menampilkan karya.</p>
-        <a href="project-portfolio.html" class="btn">Lihat Detail</a>
+        <p>Template interaktif dan profesional untuk menampilkan karya.</p>
+        <a href="project2.html" class="btn">Lihat Detail</a>
       </div>
-      <div class="project-card">
-        <img src="uiux.jpg" alt="UI/UX Aplikasi Mobile">
+      <div class="card glass">
+        <img src="assets/img4.jpg" alt="Project 3" />
         <h3>UI/UX Aplikasi Mobile</h3>
-        <p>Studi desain UI/UX aplikasi mobile modern dengan fokus pada pengalaman pengguna.</p>
-        <a href="project-uiux.html" class="btn">Lihat Detail</a>
+        <p>Studi desain aplikasi mobile modern dengan UX intuitif.</p>
+        <a href="project3.html" class="btn">Lihat Detail</a>
+      </div>
+      <div class="card glass">
+        <img src="assets/img5.jpg" alt="Project 4" />
+        <h3>Website Company Profile</h3>
+        <p>Desain profesional untuk profil perusahaan modern.</p>
+        <a href="project4.html" class="btn">Lihat Detail</a>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="content-section">
+  <!-- Contact Section -->
+  <section id="contact" class="section">
     <h2>Kontak</h2>
-    <p>Tertarik untuk berkolaborasi atau sekadar menyapa? Jangan ragu untuk menghubungi saya melalui:</p>
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:davanico.ady@example.com">davanico.ady@example.com</a></li>
-      <li><strong>LinkedIn:</strong> <a href="#">Davanico Ady Nugroho</a></li>
-      <li><strong>GitHub:</strong> <a href="#">davanico</a></li>
-    </ul>
+    <p>Email: <a href="mailto:davanico.ady@example.com">davanico.ady@example.com</a></p>
+    <p>LinkedIn: <a href="#">Davanico Ady Nugroho</a> | GitHub: <a href="#">davanico</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Davanico Ady Nugroho. All rights reserved.</p>
+    <p>© 2025 Davanico Ady Nugroho. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
