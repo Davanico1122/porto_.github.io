@@ -17,6 +17,31 @@ body.dark-mode {
     color: #E0F2F2; /* dark-mode-text dari Tailwind config */
 }
 
+/* Penyesuaian warna untuk elemen-elemen tertentu saat dark mode aktif */
+body.dark-mode .text-primary {
+    color: #E0F2F2; /* Mengubah warna text-primary untuk dark mode */
+}
+
+body.dark-mode .text-secondary {
+    color: #E0F2F2; /* Mengubah warna text-secondary untuk dark mode */
+}
+
+body.dark-mode .bg-white {
+    background-color: #223838; /* Mengubah latar belakang putih di section "About" */
+}
+
+body.dark-mode .text-gray-700 {
+    color: #E0F2F2; /* Mengubah warna teks abu-abu di section "About" */
+}
+
+body.dark-mode .dark-bg {
+    background-color: #0D1A1A; /* Memastikan elemen dengan dark-bg berubah */
+}
+
+body.dark-mode .dark-accent {
+    background-color: #223838; /* Memastikan elemen dengan dark-accent berubah */
+}
+
 body.dark-mode .main-header {
     background-color: rgba(13, 26, 26, 0.95); /* Sedikit lebih gelap & transparan */
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
@@ -101,4 +126,9 @@ body.dark-mode .nav-link:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     padding-top: 0.75rem; /* py-3 */
     padding-bottom: 0.75rem; /* py-3 */
+}
+
+/* Dark mode untuk header yang discroll */
+body.dark-mode .main-header.scrolled {
+    background-color: rgba(13, 26, 26, 0.95); /* Lebih gelap saat discroll di dark mode */
 }
