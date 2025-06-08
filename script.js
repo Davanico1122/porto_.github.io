@@ -1,131 +1,124 @@
-/* style.css */
+// script.js
 
-/* Global Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Website siap!");
 
-/* Base Body Transition for Dark Mode */
-body {
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
+    // --- 1. Smooth Scrolling untuk Navigasi ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-/* --- Dark Mode Styles --- */
-body.dark-mode {
-    background-color: #0D1A1A; /* dark-mode-bg */
-    color: #E0F2F2; /* dark-mode-text */
-}
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') { // Pastikan targetId tidak kosong atau hanya '#'
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-body.dark-mode .main-header {
-    background-color: rgba(13, 26, 26, 0.9); /* Sedikit transparan */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
+    // --- 2. Implementasi Mode Gelap ---
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-body.dark-mode .main-nav {
-    background-color: #223838; /* dark-mode-accent */
-}
-
-body.dark-mode .nav-link {
-    color: #E0F2F2; /* dark-mode-text */
-}
-
-body.dark-mode .nav-link.active {
-    background-color: #4A6A6A; /* dark-mode-button-active */
-    color: #E0F2F2; /* dark-mode-button-active-text */
-}
-
-body.dark-mode .nav-link:hover {
-    background-color: rgba(13, 26, 26, 0.5); /* hover:bg-dark-mode-bg hover:bg-opacity-50 */
-}
-
-body.dark-mode .about-section {
-    background-color: #223838; /* dark-mode-accent */
-}
-
-body.dark-mode .about-section h2 {
-    color: #E0F2F2; /* dark-mode-text */
-}
-
-body.dark-mode .about-section p {
-    color: #E0F2F2; /* dark-mode-text */
-}
-
-
-/* --- Custom Animations --- */
-
-/* Fade In Up (untuk judul hero dan teks) */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    // Fungsi untuk menerapkan tema
+    function applyTheme(theme) {
+        if (theme === 'dark-mode') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️'; // Icon untuk mode gelap
+        } else {
+            body.classList.remove('dark-mode');
+            darkModeToggle.textContent = '🌙'; // Icon untuk mode terang
+        }
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    // Cek preferensi mode gelap dari localStorage atau sistem
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        applyTheme(currentTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyTheme('dark-mode'); // Default ke dark jika sistem prefer dark
+    } else {
+        applyTheme('light-mode'); // Default ke light
     }
-}
 
-.animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0; /* Awalnya sembunyikan */
-}
+    // Event listener untuk tombol mode gelap
+    darkModeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            applyTheme('light-mode');
+            localStorage.setItem('theme', 'light-mode');
+        } else {
+            applyTheme('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        }
+    });
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-/* Tambahkan delay sesuai kebutuhan */
+    // --- 3. Animasi Elemen saat Scroll (Intersection Observer API) ---
+    const elementsToAnimate = document.querySelectorAll('.project-card, .project-card-hero');
 
+    const observerOptions = {
+        root: null, // Mengamati viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Ketika 10% elemen terlihat
+    };
 
-/* Initial state for project cards (before they are observed) */
-.project-card, .project-card-hero {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95); /* Sedikit lebih ke bawah dan kecil */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible'); // Tambahkan kelas untuk animasi
+                observer.unobserve(entry.target); // Berhenti mengamati setelah muncul
+            }
+        });
+    }, observerOptions);
 
-/* Class added by JS when element is visible */
-.is-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
+    elementsToAnimate.forEach(el => {
+        observer.observe(el); // Mulai mengamati setiap elemen
+    });
 
-/* Star Pulse Animation */
-@keyframes star-pulse {
-    0% { transform: scale(1) rotate(45deg); opacity: 0.2; }
-    50% { transform: scale(1.1) rotate(45deg); opacity: 0.35; }
-    100% { transform: scale(1) rotate(45deg); opacity: 0.2; }
-}
+    // --- 4. Interaksi Navbar (perubahan background/shadow saat scroll) ---
+    const header = document.querySelector('.main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) { // Jika sudah scroll lebih dari 80px
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 
-.star {
-    animation: star-pulse 4s infinite alternate ease-in-out;
-}
-/* Untuk membuat setiap bintang sedikit berbeda */
-.star:nth-child(1) { animation-delay: 0s; }
-.star:nth-child(2) { animation-delay: 0.5s; }
-.star:nth-child(3) { animation-delay: 1s; animation-duration: 3s; }
-.star:nth-child(4) { animation-delay: 1.5s; animation-duration: 5s; }
+    // --- 5. Navigasi Aktif (highlight link di navbar saat scroll) ---
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
 
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px', // Aktif ketika bagian tengah section terlihat
+        threshold: 0 // Tidak butuh threshold, cukup mendeteksi perpotongan
+    };
 
-/* Header Scrolled State */
-.main-header.scrolled {
-    background-color: rgba(27, 50, 49, 0.95); /* background yang lebih solid saat discroll */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    padding-top: 0.75rem; /* py-3 */
-    padding-bottom: 0.75rem; /* py-3 */
-}
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Hapus kelas 'active' dari semua link
+                navLinks.forEach(link => link.classList.remove('active', 'bg-text-secondary', 'text-button-text-active'));
+                navLinks.forEach(link => link.classList.add('text-button-text-inactive', 'hover:bg-dark-bg', 'hover:bg-opacity-50'));
 
-/* Optional: Custom scrollbar (hanya di browser tertentu) */
-/*
-::-webkit-scrollbar {
-    width: 8px;
-}
+                // Tambahkan kelas 'active' ke link yang sesuai
+                const correspondingLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.remove('text-button-text-inactive', 'hover:bg-dark-bg', 'hover:bg-opacity-50');
+                    correspondingLink.classList.add('active', 'bg-text-secondary', 'text-button-text-active');
+                }
+            }
+        });
+    }, navObserverOptions);
 
-::-webkit-scrollbar-track {
-    background: #2e494a;
-}
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
 
-::-webkit-scrollbar-thumb {
-    background: #a8e1cb;
-    border-radius: 10px;
-}
-*/
+    // Untuk memastikan link Work/Hero aktif di awal
+    if (window.location.hash === '' || window.location.hash === '#hero') {
+        document.querySelector('.nav-link[href="#hero"]').classList.add('active', 'bg-text-secondary', 'text-button-text-active');
+        document.querySelector('.nav-link[href="#hero"]').classList.remove('text-button-text-inactive', 'hover:bg-dark-bg', 'hover:bg-opacity-50');
+    }
+});
